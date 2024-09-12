@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb0qr3btst8xl"]
+
+[ext_resource type="Script" path="res://addons/loadxsave/save_button.gd" id="1_1mm01"]
+[ext_resource type="Script" path="res://addons/loadxsave/scns/example.gd" id="1_87x1s"]
+[ext_resource type="Script" path="res://addons/loadxsave/load_button.gd" id="2_n1004"]
+
+[node name="example" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.0
+offset_top = -179.0
+offset_right = 376.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87x1s")
+
+[node name="example" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveButton" type="Button" parent="example"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+script = ExtResource("1_1mm01")
+
+[node name="LoadButton" type="Button" parent="example"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+script = ExtResource("2_n1004")
+
+[node name="name_l" type="Label" parent="."]
+layout_mode = 2
+text = "Name Example
+"
+
+[node name="edit_name" type="LineEdit" parent="."]
+layout_mode = 2
+placeholder_text = "Name"
+
+[node name="unlock" type="Button" parent="."]
+layout_mode = 2
+text = "Unlock & Lock lvl2"
+
+[node name="level2" type="Button" parent="."]
+layout_mode = 2
+text = "Level2"
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="example/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="text_changed" from="edit_name" to="." method="_on_edit_name_text_changed"]
+[connection signal="pressed" from="unlock" to="." method="_on_unlock_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
